@@ -72,6 +72,29 @@ const agent = new PageAgent({
 
 await agent.execute('Click the login button')
 ```
+cd tree/main
+npm ci
+npm start
+This runs npm run dev --workspace=@page-agent/website, which executes vite --host 0.0.0.0 from the website package. The dev server will start on http://localhost:5173 (Vite's default port).
+
+npm run build:website
+This runs vite build and outputs to packages/website/dist.
+
+To preview the production build locally:
+cd tree/main/packages/website
+npm run preview
+
+Optional: Using Your Own LLM API
+Create a .env file in the repo root with your LLM configuration:
+
+LLM_MODEL_NAME=gpt-5.2
+LLM_API_KEY=your-api-key
+LLM_BASE_URL=https://api.your-llm-provider.com/v1
+Or for local Ollama:
+
+LLM_BASE_URL="http://localhost:11434/v1"
+LLM_API_KEY="NA"
+LLM_MODEL_NAME="qwen3:14b"
 
 For more programmatic usage, see [📖 Documentations](https://alibaba.github.io/page-agent/docs/introduction/overview).
 
